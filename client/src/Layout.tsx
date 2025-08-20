@@ -1,8 +1,8 @@
 import { Box } from '@mui/material';
-import { Fragment, type FC, type ReactNode } from 'react';
-import Navbar from './components/navbar/Navbar';
-import Footer from './components/footer/Footer';
-import Sidebar from './components/sidebars/Sidebar';
+import { type FC, type ReactNode } from 'react';
+import Footer from '@/components/footer/Footer';
+import Navbar from '@/components/navbar/Navbar';
+import Sidebar from '@/components/sidebars/Sidebar';
 
 const Layout: FC<{ children: ReactNode }> = ({ children }: { children: ReactNode }) => {
   return (

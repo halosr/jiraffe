@@ -3,7 +3,6 @@ import {
   AppBar,
   Box,
   Button,
-  Container,
   Drawer,
   IconButton,
   List,
@@ -12,7 +11,7 @@ import {
   Toolbar,
   Typography,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from '@mui/material';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
