@@ -1,5 +1,6 @@
 import { Request, Response, Router } from "express";
 import registerRouter from "@/routes/user/register";
+import loginRouter from "@/routes/user/login";
 
 const appRouter: Router = Router();
 
@@ -9,5 +10,6 @@ appRouter.get("/", (req: Request, res: Response) => {
 });
 
 appRouter.use(registerRouter);
+appRouter.use(loginRouter)
 
 export default appRouter;
