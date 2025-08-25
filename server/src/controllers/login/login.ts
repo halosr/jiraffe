@@ -1,7 +1,7 @@
 import AppDataSrc from "@/config/db.conf";
 import { User } from "@/models/user";
 import { ApiError } from "@/utils/error";
-import { generateToken } from "@/utils/token";
+import { generateJwt } from "@/utils/token";
 import bcrypt from "bcrypt";
 import { Request, Response } from "express";
 
@@ -34,7 +34,7 @@ export async function login(req: Request, res: Response) {
 
         const { password: _, ...userData } = user;
 
-        const authToken = generateToken(userData);
+        const authToken = generateJwt(userData);
         const responseData = { ...userData, token: authToken };
 
         res.status(200).json({ status: "success", msg: "User logged in successfully", data: responseData });

@@ -3,6 +3,7 @@ import "reflect-metadata";
 import { DataSource } from "typeorm";
 
 import { User } from "@/models/user";
+import { Story } from "@/models/story";
 
 const AppDataSrc = new DataSource({
     type: "postgres",
@@ -13,7 +14,7 @@ const AppDataSrc = new DataSource({
     database: "jiraffe",
     synchronize: false,
     logging: true,
-    entities: [User],
+    entities: [User, Story],
 });
 
 export default AppDataSrc;
