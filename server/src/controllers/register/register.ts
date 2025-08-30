@@ -30,9 +30,10 @@ export async function registerUser(req: Request, res: Response) {
         });
         const {password: _, ...responseData} = await userRepo.save(newUser);
         res.status(201).json({ status: "success", msg: "user registered successfully", data: responseData });
-    } catch (err) {
-        const error = err as ApiError;
-        console.error("Error occured:", error);
-        res.status(error.statusCode).json({ status: "failure", msg: error.message, data: error });
+    } catch (error) {
+        if (error instanceof ApiError) {
+            return res.status(error.statusCode).json({ status: "failure", msg: error.message, data: error });
+        }
+        res.status(500).json({status: 'failure', msg: 'Internal Server Error', data: error})
     }
 }

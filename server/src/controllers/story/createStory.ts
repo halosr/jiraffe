@@ -27,9 +27,10 @@ export async function createStory(req: Request, res: Response) {
         const responseData = await storyRepo.save(userStory);
 
         res.status(201).json({ status: "success", msg: "User story created successfully", data: responseData });
-    } catch (err) {
-        console.log("Error occured", err);
-        const error = err as ApiError;
-        res.status(error.statusCode).json({ status: "failure", msg: error.message, data: error });
+    } catch (error) {
+        if (error instanceof ApiError) {
+            return res.status(error.statusCode).json({ status: "failure", msg: error.message, data: error });
+        }
+        res.status(500).json({status: 'failure', msg: 'Internal Server Error', data: error})
     }
 }

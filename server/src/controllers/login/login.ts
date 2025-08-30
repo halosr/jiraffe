@@ -38,9 +38,11 @@ export async function login(req: Request, res: Response) {
         const responseData = { ...userData, token: authToken };
 
         res.status(200).json({ status: "success", msg: "User logged in successfully", data: responseData });
-    } catch (err) {
-        console.error("Error occured", err);
-        const error = err as ApiError;
-        res.status(error.statusCode).json({ status: "failure", msg: error.message, data: error });
+    } catch (error) {
+        if (error instanceof ApiError) {
+            return res.status(error.statusCode).json({ status: "failure", msg: error.message, data: error });
+        } else {
+            res.status(500).json({ status: "failure", msg: "Internal Server Error", data: error });
+        }
     }
 }
