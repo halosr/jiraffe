@@ -17,9 +17,10 @@ export function verifyToken(req: Request, res: Response, next: NextFunction) {
         }
         
         next();
-    } catch (err) {
-        console.error("Error occured", err);
-        const error = err as ApiError;
-        res.status(error.statusCode).json({ status: "failure", msg: error.message, data: error });
+    } catch (error) {
+        if (error instanceof ApiError) {
+            return res.status(error.statusCode).json({ status: "failure", msg: error.message, data: error });
+        }
+        res.status(500).json({status: 'failure', msg: 'Internal Server Error', data: error})
     }
 }
