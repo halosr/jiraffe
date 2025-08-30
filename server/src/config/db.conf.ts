@@ -4,6 +4,7 @@ import { DataSource } from "typeorm";
 
 import { User } from "@/models/user";
 import { Story } from "@/models/story";
+import { Room } from "@/models/room";
 
 const AppDataSrc = new DataSource({
     type: "postgres",
@@ -14,7 +15,7 @@ const AppDataSrc = new DataSource({
     database: "jiraffe",
     synchronize: false,
     logging: true,
-    entities: [User, Story],
+    entities: [User, Story, Room],
 });
 
 export default AppDataSrc;
