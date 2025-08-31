@@ -7,6 +7,7 @@ import theme from '@/theme/theme';
 import Dashboard from '@/pages/dashboard/Dashboard';
 import Create from '@/pages/create/Create';
 import Rooms from '@/pages/rooms/Rooms';
+import Login from '@/pages/login/login';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/create" element={<Create />} />
             <Route path="/rooms" element={<Rooms />} />
+
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Box>
       </Layout>
