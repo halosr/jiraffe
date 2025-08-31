@@ -9,4 +9,7 @@ function createStore(initialState: any) {
   });
 }
 
+export type RootState = ReturnType<ReturnType<typeof createStore>["getState"]>;
+export type AppDispatch = ReturnType<typeof createStore>["dispatch"];
+
 export default createStore;
