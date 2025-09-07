@@ -5,7 +5,7 @@ import { Router } from "express";
 
 const storyRouter: Router = Router();
 
-storyRouter.post("/story", verifyToken, createStory);
+storyRouter.post("/stories", verifyToken, createStory);
 storyRouter.get('/stories', verifyToken, getStories)
 
 export default storyRouter;

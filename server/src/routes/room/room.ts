@@ -5,7 +5,7 @@ import { Router } from "express";
 
 const roomRouter: Router = Router();
 
-roomRouter.post("/room", verifyToken, createRoom);
+roomRouter.post("/rooms", verifyToken, createRoom);
 roomRouter.get("/rooms", verifyToken, getRooms);
 
 export default roomRouter;
