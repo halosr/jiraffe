@@ -1,6 +1,8 @@
 import { login } from '@/api/login';
 import { updateLoginFields } from '@/store/actions/login.action';
 import type { RootState, AppDispatch } from '@/store/store';
+import { handleError } from '@/utils/error';
+import { AxiosError } from 'axios';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -19,17 +21,29 @@ const useLogin = () => {
     try {
       if (!email || !password) {
         setError('Missing required fields!!');
+        return;
       }
+      setError('');
       const loginResponse = await login(email, password);
-      const {token, uid, name } = loginResponse.data;
+      if (loginResponse instanceof AxiosError) {
+        handleError(loginResponse);
+      }
+      const { token, uid, name } = loginResponse?.data;
       console.log(token, uid, name);
-      navigate("/rooms")
+      navigate('/rooms');
     } catch (error) {
       console.log(error);
-    //   setError(error.message);
+      // if (error instanceof AxiosError) {
+      //   setError(error?.response?.data?.msg);
+      //   return;
+      // }
+      // setError('Something Wrong Happened!! Please try after sometime.');
+      //   setError(error.message);
+      const { msg } = handleError(error);
+      setError(msg);
     }
   };
-  return { email, password, handleChange, handleLogin, error };
+  return { email, password, error, handleChange, handleLogin };
 };
 
 export default useLogin;
