@@ -33,12 +33,6 @@ const useLogin = () => {
       navigate('/rooms');
     } catch (error) {
       console.log(error);
-      // if (error instanceof AxiosError) {
-      //   setError(error?.response?.data?.msg);
-      //   return;
-      // }
-      // setError('Something Wrong Happened!! Please try after sometime.');
-      //   setError(error.message);
       const { msg } = handleError(error);
       setError(msg);
     }
