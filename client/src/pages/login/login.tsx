@@ -1,4 +1,3 @@
-import { login } from '@/api/login';
 import useLogin from '@/hooks/useLogin';
 import { setPageProperties } from '@/store/actions/page.action';
 import { Box, Button, Paper, TextField, Typography } from '@mui/material';
@@ -58,8 +57,21 @@ const Login = () => {
           onChange={(e) => handleChange(e.target.name, e.target.value)}
           sx={(theme) => ({ fontSize: theme.spacing(5), marginBlock: theme.spacing(1) })}
         />
-        {error && <Typography variant="body1" color="red">{error}</Typography>}
-        <Button variant="contained" sx={(theme) => ({ fontSize: theme.spacing(2), marginBlock: theme.spacing(1) })} onClick={() => handleLogin()}>
+        <Box sx={(theme) => ({ minHeight: theme.spacing(3) })}>
+          {error && (
+            <Typography
+              variant="body1"
+              sx={(theme) => ({ fontSize: theme.spacing(2), color: theme.palette.error.main })}
+            >
+              {error}
+            </Typography>
+          )}
+        </Box>
+        <Button
+          variant="contained"
+          sx={(theme) => ({ fontSize: theme.spacing(2), marginBlock: theme.spacing(1) })}
+          onClick={() => handleLogin()}
+        >
           Login
         </Button>
       </Paper>

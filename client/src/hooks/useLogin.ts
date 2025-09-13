@@ -14,6 +14,7 @@ const useLogin = () => {
   const { email, password } = useSelector((state: RootState) => state.login || {});
 
   const handleChange = (field: string, value: string) => {
+    setError('');
     dispatch(updateLoginFields(field, value));
   };
 
@@ -26,11 +27,11 @@ const useLogin = () => {
       setError('');
       const loginResponse = await login(email, password);
       if (loginResponse instanceof AxiosError) {
-        handleError(loginResponse);
+        throw loginResponse;
       }
       const { token, uid, name } = loginResponse?.data;
       console.log(token, uid, name);
-      navigate('/rooms');
+      navigate('/dashboard');
     } catch (error) {
       console.log(error);
       const { msg } = handleError(error);
