@@ -8,6 +8,7 @@ import Dashboard from '@/pages/dashboard/Dashboard';
 import Create from '@/pages/create/Create';
 import Rooms from '@/pages/rooms/Rooms';
 import Login from '@/pages/login/login';
+import Board from './pages/board/Board';
 
 function App() {
   return (
@@ -16,11 +17,12 @@ function App() {
       <Layout>
         <Box>
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/create" element={<Create />} />
             <Route path="/rooms" element={<Rooms />} />
+            <Route path="/rooms/:id" element={<Board />} />
 
-            <Route path="/login" element={<Login />} />
           </Routes>
         </Box>
       </Layout>
