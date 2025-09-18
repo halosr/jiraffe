@@ -13,8 +13,8 @@ function Board() {
   const estimations = [0, 1, 1, 2, 3, 5, 8, 13, 21];
 
   return (
-    <Box sx={(theme) => ({ display: 'flex', margin: '0 auto' })}>
-      <Paper sx={(theme) => ({ display: 'flex', gap: theme.spacing(2) })}>
+    <Box sx={(theme) => ({ display: 'flex',  width: '100vw' })}>
+      <Paper sx={(theme) => ({ display: 'flex', gap: theme.spacing(2),  margin: `${theme.spacing(10)} auto`, })}>
         {estimations.map((estimation, index) => (
           <Box
             key={index}
