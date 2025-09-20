@@ -25,12 +25,10 @@ function Board() {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              
             })}
           >
-            <Typography variant='h4' component="h4">
-
-            {estimation}
+            <Typography variant="h4" component="h4">
+              {estimation}
             </Typography>
           </Box>
         ))}
