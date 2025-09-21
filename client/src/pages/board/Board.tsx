@@ -14,7 +14,7 @@ function Board() {
 
   return (
     <Box sx={(theme) => ({ display: 'flex', width: '100vw' })}>
-      <Paper sx={(theme) => ({ display: 'flex', gap: theme.spacing(2), margin: `${theme.spacing(10)} auto` })}>
+      <Paper elevation={0} sx={(theme) => ({ display: 'flex', gap: theme.spacing(2), margin: `${theme.spacing(10)} auto`, backgroundColor: theme.palette.background.default})}>
         {estimations.map((estimation, index) => (
           <Box
             key={index}
@@ -25,6 +25,7 @@ function Board() {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              border: `${theme.spacing(1)} solid ${theme.palette.divider}`
             })}
           >
             <Typography variant="h4" component="h4">
