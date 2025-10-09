@@ -36,7 +36,7 @@ function Board() {
               border: `${theme.spacing(1)} solid ${theme.palette.divider}`,
             })}
           >
-            <Typography variant="h4" component="h4">
+            <Typography variant="h4" component="h3">
               {estimation}
             </Typography>
           </Box>
