@@ -17,7 +17,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const pages = [
-  { label: 'Home', path: '/' },
+  { label: 'Dashboard', path: '/dashboard' },
   { label: 'Create', path: '/create' },
   { label: 'Rooms', path: '/rooms' },
 ];
