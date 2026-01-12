@@ -2,59 +2,63 @@ import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
-    mode: 'light',
+    mode: 'dark',
     primary: {
-      main: '#B0DB9C', // Pale Olive
-      light: '#CAE8BD', // Sage Mist
-      dark: '#96C688',
-      contrastText: '#2D2D2D',
+      main: '#6366F1', // Electric Indigo
+      light: '#818CF8',
+      dark: '#4F46E5',
+      contrastText: '#FFFFFF',
     },
     secondary: {
-      main: '#DDF6D2', // Soft Mint
-      light: '#ECFAE5',
-      contrastText: '#2D2D2D',
+      main: '#10B981', // Emerald (Perfect for 'Estimate Finished' states)
+      contrastText: '#FFFFFF',
     },
     background: {
-      default: '#ECFAE5', // Light Cream
-      paper: '#FFFFFF',
+      default: '#0B0F19', // Deep Slate/Black
+      paper: '#111827',   // Slightly lighter card background
     },
     text: {
-      primary: '#2D2D2D',
-      secondary: '#4F5A48',
+      primary: '#F9FAFB',
+      secondary: '#9CA3AF',
     },
-    divider: '#D0E7C6',
-    success: {
-      main: '#6FBF73',
-    },
-    warning: {
-      main: '#FFC107',
-    },
-    error: {
-      main: '#D9534F',
-    },
+    divider: 'rgba(255, 255, 255, 0.08)',
   },
   typography: {
-    fontFamily: `'Inter', 'Helvetica', 'Arial', sans-serif`,
-    h1: { fontWeight: 700 },
-    h2: { fontWeight: 600 },
-    button: { textTransform: 'none', fontWeight: 600 },
+    fontFamily: `'Inter', 'Plus Jakarta Sans', sans-serif`, // More modern font stack
+    h1: { fontWeight: 800, letterSpacing: '-0.02em' },
+    h2: { fontWeight: 700, letterSpacing: '-0.01em' },
+    button: { 
+      textTransform: 'none', 
+      fontWeight: 600,
+      letterSpacing: '0.02em' 
+    },
   },
-//   components: {
-//     MuiPaper: {
-//       styleOverrides: {
-//         root: {
-//           borderRadius: 12,
-//         },
-//       },
-//     },
-//     MuiButton: {
-//       styleOverrides: {
-//         root: {
-//           borderRadius: 8,
-//         },
-//       },
-//     },
-//   },
+  shape: {
+    borderRadius: 12, // Softer, more modern corners
+  },
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundImage: 'none', // Removes the default MUI grey overlay in dark mode
+          border: '1px solid rgba(255, 255, 255, 0.05)', // Subtle border
+          boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          padding: '8px 20px',
+          borderRadius: 8,
+          boxShadow: 'none',
+          '&:hover': {
+            boxShadow: '0px 0px 15px rgba(99, 102, 241, 0.3)', // Soft glow on hover
+          },
+        },
+      },
+    },
+  },
 });
 
 export default theme;
