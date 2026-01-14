@@ -1,4 +1,5 @@
 import { Card, CardHeader } from '@mui/material';
+import { memo } from 'react';
 
 function StatCard() {
   return (
@@ -8,4 +9,4 @@ function StatCard() {
   );
 }
 
-export default StatCard;
+export default memo(StatCard);
