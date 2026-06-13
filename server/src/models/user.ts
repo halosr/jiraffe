@@ -17,7 +17,7 @@ export class User {
     @Column()
     role!: string;
 
-    @Column()
+    @Column({ name: "created_by" })
     createdBy!: string;
 
     @CreateDateColumn({ name: "created_at" })
